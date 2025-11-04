@@ -1,0 +1,11 @@
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.full { grid-column: 1 / -1; }
+.error {
+    margin-top: .35rem;
+    color: var(--danger);
+    font-size: .85rem;
+}
+.hint { color: var(--muted); font-size: .85rem; margin-top: .35rem; }
+.stateActive { outline: 2px solid var(--brand); }
+.stateError  { outline: 2px solid var(--danger); }
+.hidden { display: none; }

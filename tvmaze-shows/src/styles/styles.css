@@ -1,0 +1,485 @@
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+    background-color: #050516;
+    color: #e5e7eb;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #19104b 0, #050516 55%);
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR estilo plataforma */
+
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 3rem;
+    background: linear-gradient(
+            to bottom,
+            rgba(5, 5, 22, 0.95),
+            rgba(5, 5, 22, 0.6),
+            transparent
+    );
+    backdrop-filter: blur(10px);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f5f3ff;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+}
+
+.nav-link-active,
+.nav-link:hover {
+    color: #f9fafb;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-search .search-bar input {
+    width: 220px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    background: rgba(3, 7, 18, 0.9);
+    color: inherit;
+    font-size: 0.9rem;
+}
+
+.nav-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ec4899, #a855f7);
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* HERO estilo HBO */
+
+.app-main {
+    padding-bottom: 3rem;
+}
+
+/* HERO estilo HBO con póster completo a la derecha */
+
+.hero {
+    position: relative;
+    padding: 2.5rem 3rem 2.5rem;
+    min-height: 260px;
+    overflow: hidden;
+}
+
+/* Fondo difuminado ocupando todo el ancho */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(16px);
+    transform: scale(1.06);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Contenedor del contenido encima del blur */
+.hero-inner {
+    position: relative;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* Columna izquierda: texto */
+.hero-left {
+    flex: 1.4;
+    max-width: 560px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    margin: 0.1rem 0 0.6rem;
+    font-weight: 800;
+}
+
+.hero-meta {
+    margin: 0 0 0.7rem;
+    font-size: 0.95rem;
+    color: #d1d5db;
+}
+
+.hero-summary {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    max-height: 5rem;
+    overflow: hidden;
+}
+
+.hero-summary p {
+    margin: 0 0 0.25rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+
+.hero-button {
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    padding: 0.55rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.hero-button-primary {
+    background: #f9fafb;
+    color: #111827;
+}
+
+.hero-button-secondary {
+    background: rgba(17, 24, 39, 0.9);
+    color: #e5e7eb;
+    border: 1px solid rgba(156, 163, 175, 0.7);
+}
+
+.hero-button-fav-active {
+    border-color: #facc15;
+    color: #facc15;
+}
+
+/* Columna derecha: póster completo */
+.hero-right {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-poster {
+    width: 220px;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1.2rem 2rem;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-right {
+        justify-content: flex-start;
+    }
+
+    .hero-poster {
+        width: 180px;
+        max-height: 260px;
+    }
+}
+
+
+/* FILTROS */
+
+.filters-wrapper {
+    padding: 0 3rem;
+    margin-top: 0.8rem;
+}
+
+.filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter label {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.filter select {
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    background: #020617;
+    color: inherit;
+    font-size: 0.85rem;
+}
+
+/* SECCIONES DE CARRUSELES */
+
+.section {
+    padding: 1.5rem 3rem 0;
+}
+
+.section-title {
+    margin: 0 0 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Carrusel horizontal */
+
+.shows-row {
+    position: relative;
+}
+
+.shows-row-scroll {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.shows-row-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.shows-row-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.shows-row-scroll::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 999px;
+}
+
+/* CARDS tipo póster */
+
+.show-card {
+    flex: 0 0 150px;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+.show-card-image-wrapper {
+    position: relative;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    background: #020617;
+}
+
+.show-card-image {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.show-card:hover .show-card-image {
+    transform: scale(1.07);
+    filter: brightness(1.1);
+}
+
+.show-card-fav {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    border-radius: 999px;
+    border: none;
+    background: rgba(15, 23, 42, 0.75);
+    color: #e5e7eb;
+    font-size: 0.9rem;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.show-card-fav--active {
+    color: #facc15;
+}
+
+.show-card-body {
+    padding-top: 0.4rem;
+}
+
+.show-card-title {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.show-card-rating {
+    margin: 0.12rem 0 0;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+/* MODAL */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 5, 22, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal-content {
+    background: #020617;
+    border-radius: 1rem;
+    border: 1px solid #4b5563;
+    max-width: 900px;
+    width: 95%;
+    max-height: 90vh;
+    overflow: auto;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-image img {
+    width: 100%;
+    border-radius: 0.75rem;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.modal-summary {
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+}
+
+/* Errores */
+
+.error {
+    color: #fca5a5;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .app-header {
+        padding-inline: 1rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .hero {
+        padding: 3rem 1.2rem 2.4rem;
+    }
+
+    .filters-wrapper,
+    .section {
+        padding-inline: 1.2rem;
+    }
+
+    .nav-search .search-bar input {
+        width: 150px;
+    }
+}
+
+@media (min-width: 900px) {
+    .hero {
+        padding-top: 4.5rem;
+    }
+
+    .modal-body {
+        flex-direction: row;
+    }
+
+    .modal-image {
+        flex: 1;
+    }
+
+    .modal-info {
+        flex: 1.3;
+    }
+}
